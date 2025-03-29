@@ -1,0 +1,15 @@
+Transaction ID,Customer ID,Type,Amount,Date,Status
+1,1,Deposit,2000,2025-03-23 21:55:48,Approved
+2,1,Withdrawal,6000,2025-03-23 21:55:48,Flagged for Review
+101,1,Deposit,3000,2025-03-23 21:55:59,Approved
+102,1,Withdrawal,7000,2025-03-23 21:55:59,Flagged for Review
+1,1,Deposit,2000,2025-03-23 22:22:27,Approved
+2,1,Withdrawal,6000,2025-03-23 22:22:27,Flagged for Review
+101,1,Deposit,3000,2025-03-23 22:22:31,Approved
+102,1,Withdrawal,7000,2025-03-23 22:22:31,Flagged for Review
+101,1,Deposit,6000,2025-03-23 22:23:14,Flagged for Review
+102,1,Withdrawal,7000,2025-03-23 22:23:14,Flagged for Review
+101,1,Deposit,3000,2025-03-24 04:17:30,Approved
+102,1,Withdrawal,7000,2025-03-24 04:17:30,Flagged for Review
+101,1,Deposit,3000,2025-03-24 04:25:43,Approved
+102,1,Withdrawal,7000,2025-03-24 04:25:43,Flagged for Review

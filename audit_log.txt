@@ -1,0 +1,12 @@
+[2025-03-24 04:16:50] LOGIN_ATTEMPT: User John Doe tried to log in.
+[2025-03-24 04:16:50] SUSPICIOUS_TRANSACTION: Customer 1 withdrew $7000 (Flagged).
+[2025-03-24 04:17:30] DEPOSIT: John Doe deposited $3000. Status: Approved
+[2025-03-24 04:17:30] SUSPICIOUS_TRANSACTION: Customer 1 tried Withdrawal of $7000 (Flagged).
+[2025-03-24 04:17:30] WITHDRAWAL: John Doe withdrew $7000. Status: Flagged for Review
+[2025-03-24 04:18:31] LOGIN_ATTEMPT: User John Doe tried to log in.
+[2025-03-24 04:18:31] SUSPICIOUS_TRANSACTION: Customer 1 withdrew $7000 (Flagged).
+[2025-03-24 04:25:43] DEPOSIT: John Doe deposited $3000. Status: Approved
+[2025-03-24 04:25:43] SUSPICIOUS_TRANSACTION: Customer 1 tried Withdrawal of $7000 (Flagged).
+[2025-03-24 04:25:43] WITHDRAWAL: John Doe withdrew $7000. Status: Flagged for Review
+[2025-03-29 20:42:49] REPORT_GENERATED: Financial report generated.
+[2025-03-29 21:09:42] REPORT_GENERATED: Financial report generated.
