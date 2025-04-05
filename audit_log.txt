@@ -1,0 +1,29 @@
+[2025-03-24 04:16:50] LOGIN_ATTEMPT: User John Doe tried to log in.
+[2025-03-24 04:16:50] SUSPICIOUS_TRANSACTION: Customer 1 withdrew $7000 (Flagged).
+[2025-03-24 04:17:30] DEPOSIT: John Doe deposited $3000. Status: Approved
+[2025-03-24 04:17:30] SUSPICIOUS_TRANSACTION: Customer 1 tried Withdrawal of $7000 (Flagged).
+[2025-03-24 04:17:30] WITHDRAWAL: John Doe withdrew $7000. Status: Flagged for Review
+[2025-03-24 04:18:31] LOGIN_ATTEMPT: User John Doe tried to log in.
+[2025-03-24 04:18:31] SUSPICIOUS_TRANSACTION: Customer 1 withdrew $7000 (Flagged).
+[2025-03-24 04:25:43] DEPOSIT: John Doe deposited $3000. Status: Approved
+[2025-03-24 04:25:43] SUSPICIOUS_TRANSACTION: Customer 1 tried Withdrawal of $7000 (Flagged).
+[2025-03-24 04:25:43] WITHDRAWAL: John Doe withdrew $7000. Status: Flagged for Review
+[2025-03-29 20:42:49] REPORT_GENERATED: Financial report generated.
+[2025-04-05 20:04:22] DEPOSIT: John Doe deposited $1000. Status: Approved
+[2025-04-05 20:04:22] WITHDRAWAL: John Doe withdrew $200. Status: Approved
+[2025-04-05 20:37:50] DEPOSIT: John Doe deposited $1000. Status: Approved
+[2025-04-05 20:37:50] WITHDRAWAL: John Doe withdrew $200. Status: Approved
+[2025-04-05 20:46:15] REPORT_GENERATED: Financial report generated.
+[2025-04-05 20:51:16] DEPOSIT: John Doe deposited $1000. Status: Approved
+[2025-04-05 20:51:16] WITHDRAWAL: John Doe withdrew $200. Status: Approved
+[2025-04-05 20:58:29] REPORT_GENERATED: Financial report generated.
+[2025-04-05 21:09:21] SUSPICIOUS_TRANSACTION: Customer 1 tried Deposit of $50000.0 (Flagged).
+[2025-04-05 21:09:21] DEPOSIT: John Doe deposited $50000.0. Status: Flagged for Review
+[2025-04-05 21:10:22] SUSPICIOUS_TRANSACTION: Customer 1 tried Withdrawal of $49000.0 (Flagged).
+[2025-04-05 21:10:22] WITHDRAWAL: John Doe withdrew $49000.0. Status: Flagged for Review
+[2025-04-06 02:08:20] DEPOSIT: John Doe deposited $3000. Status: Approved
+[2025-04-06 02:08:20] SUSPICIOUS_TRANSACTION: Customer 1 tried Withdrawal of $7000 (Flagged).
+[2025-04-06 02:08:20] WITHDRAWAL: John Doe withdrew $7000. Status: Flagged for Review
+[2025-04-06 02:32:09] SUSPICIOUS_TRANSACTION: Customer 1 tried Deposit of $6001.0 (Flagged).
+[2025-04-06 02:32:09] DEPOSIT: John Doe deposited $6001.0. Status: Flagged for Review
+[2025-04-06 02:32:38] WITHDRAWAL: John Doe withdrew $1000.0. Status: Approved
