@@ -1,27 +1,22 @@
 import csv
 import os
 
-# Get absolute path to the project root
+
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Use absolute paths for data files
 DATA_DIR = os.path.join(PROJECT_ROOT, "data")
 CUSTOMERS_FILE = os.path.join(DATA_DIR, "customers.csv")
 TRANSACTIONS_FILE = os.path.join(DATA_DIR, "transactions.csv")
 
-# Field definitions
 CUSTOMER_FIELDS = ["customer_id", "name", "email", "password", "balance"]
 TRANSACTION_FIELDS = ["customer_id", "name", "type", "amount", "balance"]
 
-# Ensure data directory exists
 os.makedirs(DATA_DIR, exist_ok=True)
 #print(f"Data directory: {DATA_DIR}")
 #print(f"Resolved path to customers.csv: {CUSTOMERS_FILE}")
 
-# Session data
 session_customers = []
 
-# Load existing customers from CSV
 def load_customers_from_csv():
     if os.path.exists(CUSTOMERS_FILE):
         print(f"Loading customers from: {CUSTOMERS_FILE}")
@@ -30,10 +25,8 @@ def load_customers_from_csv():
     print("No existing customers.csv found. Starting fresh.")
     return []
 
-# Load into session
 session_customers.extend(load_customers_from_csv())
 
-# Public API functions
 def get_all_customers():
     return session_customers
 
@@ -76,7 +69,6 @@ def persist_customers_to_csv():
             row = {field: cust.get(field, "") for field in CUSTOMER_FIELDS}
             writer.writerow(row)
 
-# Ensure an empty file is created with headers if file was deleted
 if not os.path.exists(CUSTOMERS_FILE):
     print("Creating new customers.csv with headers.")
     persist_customers_to_csv()

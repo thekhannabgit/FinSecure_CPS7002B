@@ -1,4 +1,3 @@
-# GUI/LauncherCustomer.py
 import tkinter as tk
 from GUICustomer import CustomerGUI
 

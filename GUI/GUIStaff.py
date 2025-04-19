@@ -1,4 +1,4 @@
-# GUI/GUIStaff.py
+
 import csv
 import tkinter as tk
 import os

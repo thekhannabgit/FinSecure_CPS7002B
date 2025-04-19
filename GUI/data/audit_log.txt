@@ -52,3 +52,15 @@
 [2025-04-19 20:42:16] LOGIN - Admin logged in.
 [2025-04-19 20:42:21] VIEW_TRANSACTIONS - Viewed transaction log.
 [2025-04-19 20:43:27] LOGIN - Admin logged in.
+[2025-04-19 20:52:55] LOGIN - Admin logged in.
+[2025-04-19 20:52:56] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-04-19 20:53:07] VIEW_LOGS - Viewed audit logs.
+[2025-04-19 20:55:25] CUSTOMER_LOGIN_FAIL - Attempt with ID CUST9919 and name 2416877
+[2025-04-19 20:55:35] CUSTOMER_LOGIN_FAIL - Attempt with ID CUST9919 and name 2416788
+[2025-04-19 20:55:55] CUSTOMER_LOGIN_FAIL - Attempt with ID CUST9919 and name 2416877
+[2025-04-19 20:56:17] CUSTOMER_LOGIN_FAIL - Attempt with ID CUST1307 and name 2416877
+[2025-04-19 21:15:57] LOGIN - Admin logged in.
+[2025-04-19 21:15:59] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 21:16:07] SEARCH - Searched customer CUST9919
+[2025-04-19 21:16:09] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-04-19 21:16:17] VIEW_LOGS - Viewed audit logs.
