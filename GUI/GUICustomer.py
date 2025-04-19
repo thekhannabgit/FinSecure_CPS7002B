@@ -1,130 +1,115 @@
 # GUI/GUICustomer.py
 import tkinter as tk
 from tkinter import messagebox
-import random
-from utils import database
+import os
+import csv
+from utils import database, compliance
 
 class CustomerGUI:
     def __init__(self, master):
         self.master = master
-        self.master.title("FinSecure - Customer Portal")
-        self.current_customer = None
-        self.show_main_menu()
-        self.master.protocol("WM_DELETE_WINDOW", self.on_exit)
+        self.master.title("FinSecure - Customer Dashboard")
+        self.logger = compliance.Compliance()
+        self.customer = None
+        self.show_login()
 
     def clear_window(self):
         for widget in self.master.winfo_children():
             widget.destroy()
 
-    def show_main_menu(self):
+    def show_login(self):
         self.clear_window()
-        tk.Label(self.master, text="Welcome to FinSecure - Customer", font=("Arial", 16)).pack(pady=10)
-        tk.Button(self.master, text="Register", width=20, command=self.register_screen).pack(pady=5)
-        tk.Button(self.master, text="Login", width=20, command=self.login_screen).pack(pady=5)
+        tk.Label(self.master, text="Customer Login", font=("Arial", 16)).pack(pady=10)
 
-    def register_screen(self):
-        self.clear_window()
-        tk.Label(self.master, text="Register New Customer", font=("Arial", 14)).pack(pady=10)
-
-        self.name_entry = self.create_input("Full Name")
-        self.email_entry = self.create_input("Email")
-        self.password_entry = self.create_input("Password", show="*")
-
-        def submit():
-            cid = f"CUST{random.randint(1000,9999)}"
-            name = self.name_entry.get()
-            email = self.email_entry.get()
-            password = self.password_entry.get()
-            balance = "0"
-            try:
-                database.save_customer({
-                    "customer_id": cid,
-                    "name": name,
-                    "email": email,
-                    "password": password,
-                    "balance": balance
-                })
-                messagebox.showinfo("Success", f"Registered! Your ID is {cid}")
-                self.show_main_menu()
-            except ValueError as e:
-                messagebox.showerror("Error", str(e))
-
-        tk.Button(self.master, text="Submit", command=submit).pack(pady=10)
-        tk.Button(self.master, text="Back", command=self.show_main_menu).pack()
-
-    def login_screen(self):
-        self.clear_window()
-        tk.Label(self.master, text="Customer Login", font=("Arial", 14)).pack(pady=10)
-
-        self.login_id_entry = self.create_input("Customer ID")
-        self.login_pw_entry = self.create_input("Password", show="*")
+        self.id_entry = self.create_input("Customer ID")
+        self.name_entry = self.create_input("Name")
 
         def login():
-            cid = self.login_id_entry.get()
-            pw = self.login_pw_entry.get()
-            customer = database.find_customer_by_id(cid)
-            if customer and customer["password"] == pw:
-                self.current_customer = customer
+            customer_id = self.id_entry.get()
+            name = self.name_entry.get()
+            customer = database.find_customer_by_id(customer_id)
+            if customer and customer['name'] == name:
+                self.customer = customer
+                self.logger.log_event("CUSTOMER_LOGIN", f"{name} logged in.")
                 self.dashboard()
             else:
-                messagebox.showerror("Error", "Invalid credentials.")
+                messagebox.showerror("Login Failed", "Invalid ID or Name.")
+                self.logger.log_event("CUSTOMER_LOGIN_FAIL", f"Attempt with ID {customer_id} and name {name}")
 
         tk.Button(self.master, text="Login", command=login).pack(pady=10)
-        tk.Button(self.master, text="Back", command=self.show_main_menu).pack()
+        tk.Button(self.master, text="Exit", command=self.master.quit).pack()
 
     def dashboard(self):
         self.clear_window()
-        tk.Label(self.master, text=f"Welcome, {self.current_customer['name']}", font=("Arial", 14)).pack(pady=10)
+        tk.Label(self.master, text=f"Welcome {self.customer['name']}", font=("Arial", 16)).pack(pady=10)
 
-        tk.Button(self.master, text="View Balance", command=self.view_balance).pack(pady=5)
-        tk.Button(self.master, text="Deposit", command=lambda: self.transaction("Deposit")).pack(pady=5)
-        tk.Button(self.master, text="Withdraw", command=lambda: self.transaction("Withdraw")).pack(pady=5)
-        tk.Button(self.master, text="Logout", command=self.show_main_menu).pack(pady=10)
+        tk.Button(self.master, text="View My Profile", command=self.view_profile).pack(pady=5)
+        tk.Button(self.master, text="View My Transactions", command=self.view_my_transactions).pack(pady=5)
+        tk.Button(self.master, text="Logout", command=self.show_login).pack(pady=10)
 
-    def view_balance(self):
-        messagebox.showinfo("Balance", f"Your current balance is ${self.current_customer['balance']}")
+    def create_scrollable_frame(self):
+        container = tk.Frame(self.master)
+        canvas = tk.Canvas(container, height=400)
+        scrollbar = tk.Scrollbar(container, orient="vertical", command=canvas.yview)
+        scrollable_frame = tk.Frame(canvas)
 
-    def transaction(self, txn_type):
+        scrollable_frame.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+
+        canvas.create_window((0, 0), window=scrollable_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        container.pack(fill="both", expand=True)
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+
+        return scrollable_frame
+
+    def view_profile(self):
         self.clear_window()
-        tk.Label(self.master, text=f"{txn_type} Amount", font=("Arial", 14)).pack(pady=10)
+        tk.Label(self.master, text="My Profile", font=("Arial", 14)).pack(pady=10)
 
-        amount_entry = tk.Entry(self.master)
-        amount_entry.pack(pady=5)
+        info = f"ID: {self.customer['customer_id']}\nName: {self.customer['name']}\nEmail: {self.customer['email']}\nBalance: ${self.customer['balance']}"
+        tk.Label(self.master, text=info, justify="left").pack(pady=10)
 
-        def process():
-            try:
-                amt = float(amount_entry.get())
-                balance = float(self.current_customer['balance'])
-                if txn_type == "Withdraw" and amt > balance:
-                    messagebox.showerror("Error", "Insufficient funds.")
-                    return
-                new_balance = balance + amt if txn_type == "Deposit" else balance - amt
-                database.update_customer_balance(self.current_customer['customer_id'], new_balance)
-                database.log_transaction(
-                    self.current_customer['customer_id'],
-                    self.current_customer['name'],
-                    txn_type,
-                    amt,
-                    new_balance
-                )
-                self.current_customer['balance'] = str(new_balance)
-                messagebox.showinfo("Success", f"{txn_type} complete. New balance: ${new_balance}")
-                self.dashboard()
-            except:
-                messagebox.showerror("Error", "Invalid input.")
+        self.logger.log_event("VIEW_PROFILE", f"{self.customer['name']} viewed profile.")
+        tk.Button(self.master, text="Back", command=self.dashboard).pack(pady=10)
 
-        tk.Button(self.master, text="Submit", command=process).pack(pady=5)
-        tk.Button(self.master, text="Back", command=self.dashboard).pack()
+    def view_my_transactions(self):
+        self.clear_window()
+        tk.Label(self.master, text="My Transactions", font=("Arial", 14)).pack(pady=10)
 
-    def create_input(self, label, show=None):
+        frame = self.create_scrollable_frame()
+
+        transactions_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "transactions.csv")
+
+        found = False
+        try:
+            if not os.path.exists(transactions_file):
+                raise FileNotFoundError
+
+            with open(transactions_file, "r") as file:
+                for line in file:
+                    if line.startswith(self.customer['customer_id']):
+                        found = True
+                        tk.Label(frame, text=line.strip(), anchor="w", justify="left").pack(fill="x", padx=10)
+
+            if not found:
+                tk.Label(frame, text="No transactions found.", fg="gray").pack(pady=10)
+
+            self.logger.log_event("VIEW_MY_TRANSACTIONS", f"{self.customer['name']} viewed their transactions.")
+        except FileNotFoundError:
+            messagebox.showerror("Error", "transactions.csv not found.")
+
+        tk.Button(self.master, text="Back", command=self.dashboard).pack(pady=10)
+
+    def create_input(self, label):
         tk.Label(self.master, text=label).pack()
-        entry = tk.Entry(self.master, show=show)
+        entry = tk.Entry(self.master)
         entry.pack()
         return entry
-
-    def on_exit(self):
-        database.persist_customers_to_csv()
-        self.master.destroy()
 
 if __name__ == "__main__":
     root = tk.Tk()
