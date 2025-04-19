@@ -1,0 +1,54 @@
+[2025-04-18 19:30:31] FAILED_LOGIN - Attempt with username: admin
+[2025-04-18 19:31:08] LOGIN - Admin logged in.
+[2025-04-18 19:31:10] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-18 19:31:26] SEARCH_FAIL - Customer CUST2409 not found
+[2025-04-18 19:31:35] VIEW_LOGS - Viewed audit logs.
+[2025-04-18 19:38:46] LOGIN - Admin logged in.
+[2025-04-18 19:38:48] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-18 19:39:23] SEARCH_FAIL - Customer cust2270 not found
+[2025-04-18 19:39:33] SEARCH - Searched customer CUST2270
+[2025-04-18 19:39:49] VIEW_LOGS - Viewed audit logs.
+[2025-04-19 18:36:16] LOGIN - Admin logged in.
+[2025-04-19 18:36:18] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 18:50:49] LOGIN - Admin logged in.
+[2025-04-19 18:50:51] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 18:51:04] VIEW_LOGS - Viewed audit logs.
+[2025-04-19 19:43:45] LOGIN - Admin logged in.
+[2025-04-19 19:43:48] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 19:43:54] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 19:44:07] SEARCH - Searched customer CUST1088
+[2025-04-19 19:44:14] VIEW_LOGS - Viewed audit logs.
+[2025-04-19 20:07:12] LOGIN - Admin logged in.
+[2025-04-19 20:07:23] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 20:07:29] VIEW_LOGS - Viewed audit logs.
+[2025-04-19 20:09:36] LOGIN - Admin logged in.
+[2025-04-19 20:13:31] LOGIN - Admin logged in.
+[2025-04-19 20:13:34] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:16:20] LOGIN - Admin logged in.
+[2025-04-19 20:16:22] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:19:13] FAILED_LOGIN - Attempt with username: CUST9919
+[2025-04-19 20:19:22] FAILED_LOGIN - Attempt with username: CUST9919
+[2025-04-19 20:19:36] FAILED_LOGIN - Attempt with username: CUST9919
+[2025-04-19 20:19:50] FAILED_LOGIN - Attempt with username: CUST9919
+[2025-04-19 20:20:42] FAILED_LOGIN - Attempt with username: CUST1088
+[2025-04-19 20:20:51] LOGIN - Admin logged in.
+[2025-04-19 20:20:53] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:21:30] FAILED_LOGIN - Attempt with username: admin
+[2025-04-19 20:21:36] LOGIN - Admin logged in.
+[2025-04-19 20:21:37] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:23:41] LOGIN - Admin logged in.
+[2025-04-19 20:23:43] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 20:23:49] VIEW_LOGS - Viewed audit logs.
+[2025-04-19 20:26:47] LOGIN - Admin logged in.
+[2025-04-19 20:26:51] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:29:22] VIEW_LOGS - Viewed audit logs.
+[2025-04-19 20:29:44] LOGIN - Admin logged in.
+[2025-04-19 20:29:49] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:31:30] LOGIN - Admin logged in.
+[2025-04-19 20:31:32] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:31:36] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:31:39] VIEW_CUSTOMERS - Viewed all customers.
+[2025-04-19 20:31:43] VIEW_TRANSACTIONS_EMPTY - Attempted to view empty transaction log.
+[2025-04-19 20:42:16] LOGIN - Admin logged in.
+[2025-04-19 20:42:21] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-04-19 20:43:27] LOGIN - Admin logged in.
