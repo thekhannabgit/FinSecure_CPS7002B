@@ -13,3 +13,5 @@
 [2025-04-24 00:08:10] VIEW_TRANSACTIONS - Viewed transaction log.
 [2025-04-24 00:08:24] SEARCH - Searched customer CUST1088
 [2025-04-24 00:08:28] VIEW_LOGS - Viewed audit logs.
+[2025-04-24 01:28:04] LOGIN - Admin logged in.
+[2025-04-24 01:28:06] VIEW_CUSTOMERS - Viewed all customers.

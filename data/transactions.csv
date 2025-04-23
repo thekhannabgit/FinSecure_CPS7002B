@@ -1,39 +1,5 @@
-Transaction ID,Customer ID,Type,Amount,Date,Status
-1,1,Deposit,2000,2025-03-23 21:55:48,Approved
-2,1,Withdrawal,6000,2025-03-23 21:55:48,Flagged for Review
-101,1,Deposit,3000,2025-03-23 21:55:59,Approved
-102,1,Withdrawal,7000,2025-03-23 21:55:59,Flagged for Review
-1,1,Deposit,2000,2025-03-23 22:22:27,Approved
-2,1,Withdrawal,6000,2025-03-23 22:22:27,Flagged for Review
-101,1,Deposit,3000,2025-03-23 22:22:31,Approved
-102,1,Withdrawal,7000,2025-03-23 22:22:31,Flagged for Review
-101,1,Deposit,6000,2025-03-23 22:23:14,Flagged for Review
-102,1,Withdrawal,7000,2025-03-23 22:23:14,Flagged for Review
-101,1,Deposit,3000,2025-03-24 04:17:30,Approved
-102,1,Withdrawal,7000,2025-03-24 04:17:30,Flagged for Review
-101,1,Deposit,3000,2025-03-24 04:25:43,Approved
-102,1,Withdrawal,7000,2025-03-24 04:25:43,Flagged for Review
-101,1,Deposit,1000,2025-04-05 20:04:22,Approved
-102,1,Withdrawal,200,2025-04-05 20:04:22,Approved
-101,1,Deposit,1000,2025-04-05 20:37:50,Approved
-102,1,Withdrawal,200,2025-04-05 20:37:50,Approved
-101,1,Deposit,1000,2025-04-05 20:51:16,Approved
-102,1,Withdrawal,200,2025-04-05 20:51:16,Approved
-101,1,Deposit,50000.0,2025-04-05 21:09:21,Flagged for Review
-102,1,Withdrawal,49000.0,2025-04-05 21:10:22,Flagged for Review
-101,1,Deposit,3000,2025-04-06 02:08:20,Approved
-102,1,Withdrawal,7000,2025-04-06 02:08:20,Flagged for Review
-101,1,Deposit,6001.0,2025-04-06 02:32:09,Flagged for Review
-102,1,Withdrawal,1000.0,2025-04-06 02:32:38,Approved
-CUST2409,Mohd Nabeel,Deposit,1000.0,1000.0,2025-04-06 05:14:06,Approved
-CUST2409,Mohd Nabeel,Withdraw,500.0,500.0,2025-04-06 05:14:36,Approved
-CUST2409,Mohd Nabeel,Deposit,2000.0,6500.0,2025-04-06 05:19:28,Approved
-CUST1307,Mohd Nabeel,Deposit,1000.0,1000.0
-CUST1307,Mohd Nabeel,Withdraw,200.0,800.0
-CUST9919,Mohd Nabeel,Deposit,5000.0,5000.0
-CUST9919,Mohd Nabeel,Withdraw,1.0,4999.0
-CUST9919,Mohd Nabeel,Withdraw,67.0,4932.0
-CUST9919,Mohd Nabeel,Deposit,6767.0,11699.0
-CUST9919,Mohd Nabeel,Deposit,1000.0,13699.0
-CUST9919,Mohd Nabeel,Withdraw,5.0,13694.0
-CUST9919,Mohd Nabeel,Withdraw,700.0,12994.0
+transaction_id,customer_id,name,type,amount,balance,timestamp,status
+1,CUST1088,nabeelnew,Deposit,567688568.0,567688568.0,24-04-2025 01:28,Flagged for Review
+2,CUST1088,nabeelnew,Withdraw,8000.0,567680568.0,24-04-2025 01:28,Flagged for Review
+3,CUST1088,nabeelnew,Deposit,455.0,567681023.0,24-04-2025 01:29,Approved
+4,CUST1088,nabeelnew,Withdraw,100.0,567680923.0,24-04-2025 01:29,Approved
