@@ -3,10 +3,13 @@ import csv
 import tkinter as tk
 import os
 from tkinter import messagebox, ttk
-from utils import compliance, database
+from utils import compliance, database, analytics
+from utils import charting
+
 
 class StaffGUI:
     def __init__(self, master):
+        self.view_analytics
         self.master = master
         self.master.title("FinSecure - Staff Dashboard")
         self.logger = compliance.Compliance()
@@ -42,6 +45,9 @@ class StaffGUI:
         tk.Button(self.master, text="Search Customer", command=self.search_customer).pack(pady=5)
         tk.Button(self.master, text="View Transactions", command=self.view_transactions).pack(pady=5)
         tk.Button(self.master, text="View Compliance Logs", command=self.view_logs).pack(pady=5)
+        tk.Button(self.master, text="View Analytics", command=self.view_analytics).pack(pady=5)
+        tk.Button(self.master, text="📊 Deposits vs Withdrawals", command=charting.plot_deposit_vs_withdrawal).pack(pady=5)
+        tk.Button(self.master, text="📈 Customer Totals", command=charting.plot_customer_transaction_totals).pack(pady=5)
         tk.Button(self.master, text="Logout", command=self.show_login).pack(pady=10)
 
     def view_all_customers(self):
@@ -144,6 +150,34 @@ class StaffGUI:
         entry = tk.Entry(self.master, show=show)
         entry.pack()
         return entry
+
+    def view_analytics(self):
+        print("Analytics button clicked!")
+
+        self.clear_window()
+        tk.Label(self.master, text="Data Analytics Summary", font=("Arial", 14)).pack(pady=10)
+
+        frame = self.create_scrollable_frame()
+        summary = analytics.get_analytics_summary()
+
+        lines = [
+            f"📊 Total Customers: {summary['total_customers']}",
+            f"💰 Total Deposits: ${summary['total_deposits']:.2f}",
+            f"💸 Total Withdrawals: ${summary['total_withdrawals']:.2f}",
+            f"📈 Highest Deposit: ${summary['highest_deposit']:.2f}",
+            f"📉 Highest Withdrawal: ${summary['highest_withdrawal']:.2f}",
+            f"💼 Average Balance: ${summary['average_balance']:.2f}",
+        ]
+
+        if summary['top_customer']:
+            top = summary['top_customer']
+            lines.append(f"🏆 Top Customer: {top['name']} (ID: {top['customer_id']}) with ${top['balance']}")
+
+        for line in lines:
+            tk.Label(frame, text=line, anchor="w", justify="left").pack(fill="x", padx=10)
+
+        tk.Button(self.master, text="Back", command=self.dashboard).pack(pady=10)
+
 
 if __name__ == "__main__":
     root = tk.Tk()

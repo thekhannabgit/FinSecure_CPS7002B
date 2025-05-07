@@ -1,4 +1,6 @@
 customer_id,name,email,password,balance
-CUST1088,nabeelnew,nabeelnew@mail.com,12345,567680923.0
+CUST1088,nabeelnew,nabeelnew@mail.com,12345,567685153.0
 CUST1307,Mohd Nabeel,2416877@live.stmarys.ac.uk,2416877,800.0
-CUST9919,Mohd Nabeel,Nabeel@finsecure.com,2416877,12994.0
+CUST9919,Mohd Nabeel,Nabeel@finsecure.com,2416877,258959.0
+CUST7274,test123,test@mail.com,test123,498.0
+CUST7247,NabeelTest1,test@gmail.com,2416877,10800.0

@@ -1,4 +1,3 @@
-# GUI/LauncherStaff.py
 import tkinter as tk
 from GUIStaff import StaffGUI
 
