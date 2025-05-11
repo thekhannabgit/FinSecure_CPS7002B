@@ -111,3 +111,36 @@ if not os.path.exists(CUSTOMERS_FILE):
     persist_customers_to_csv()
 '''else:
     print("customers.csv already exists.")'''
+
+# === Staff Management ===
+STAFF_FILE = os.path.join(DATA_DIR, "staff.csv")
+STAFF_FIELDS = ["username", "password", "role"]
+
+def load_all_staff():
+    if not os.path.exists(STAFF_FILE):
+        return []
+    with open(STAFF_FILE, "r", newline="") as file:
+        return list(csv.DictReader(file))
+
+def find_staff(username):
+    return next((s for s in load_all_staff() if s["username"] == username), None)
+
+def validate_staff_login(username, password):
+    staff = find_staff(username)
+    if staff and staff["password"] == password:
+        return staff["role"]  # returns 'admin' or 'non-admin'
+    return None
+
+def register_staff(username, password, role):
+    if find_staff(username):
+        raise ValueError("Username already exists.")
+    with open(STAFF_FILE, "a", newline="") as file:
+        writer = csv.DictWriter(file, fieldnames=STAFF_FIELDS)
+        if os.stat(STAFF_FILE).st_size == 0:
+            writer.writeheader()
+        writer.writerow({
+            "username": username,
+            "password": password,
+            "role": role
+        })
+

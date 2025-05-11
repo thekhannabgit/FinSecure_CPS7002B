@@ -19,3 +19,5 @@ transaction_id,customer_id,name,type,amount,balance,timestamp,status
 18,CUST7247,NabeelTest1,Deposit,1000.0,1000.0,30-04-2025 19:45,Approved
 19,CUST7247,NabeelTest1,Withdraw,200.0,800.0,30-04-2025 19:45,Approved
 20,CUST7247,NabeelTest1,Deposit,10000.0,10800.0,30-04-2025 19:45,Approved
+21,CUST6396,Ryan Jackson,Deposit,1000.0,1000.0,11-05-2025 17:29,Approved
+22,CUST6396,Ryan Jackson,Withdraw,10.0,990.0,11-05-2025 17:29,Approved

@@ -1,4 +1,3 @@
-# GUI/GUICustomer.py
 import tkinter as tk
 from tkinter import messagebox
 import random
@@ -25,25 +24,29 @@ class ScrollableFrame(tk.Frame):
 class CustomerGUI:
     def __init__(self, master):
         self.master = master
-        self.master.title("FinSecure - Customer Portal")
+        self.master.title("FinSecure - Customer Dashboard")
         self.current_customer = None
+        self.status_label = tk.Label(self.master, text="", fg="green", font=("Segoe UI", 10))
+        self.status_label.pack(pady=5)
         self.show_main_menu()
         self.master.protocol("WM_DELETE_WINDOW", self.on_exit)
 
     def clear_window(self):
         for widget in self.master.winfo_children():
             widget.destroy()
+        self.status_label = tk.Label(self.master, text="", fg="green", font=("Segoe UI", 10))
+        self.status_label.pack(pady=5)
 
     def show_main_menu(self):
         self.clear_window()
-        tk.Label(self.master, text="Welcome to FinSecure - Customer", font=("Arial", 16)).pack(pady=10)
-        tk.Button(self.master, text="Register", width=20, command=self.register_screen).pack(pady=5)
-        tk.Button(self.master, text="Login", width=20, command=self.login_screen).pack(pady=5)
-        tk.Button(self.master, text="Exit", width=20, command=self.on_exit).pack(pady=20)
+        tk.Label(self.master, text="Welcome to FinSecure - Customer", font=("Segoe UI", 14, "bold")).pack(pady=10)
+        tk.Button(self.master, text="Register", width=25, command=self.register_screen).pack(pady=8)
+        tk.Button(self.master, text="Login", width=25, command=self.login_screen).pack(pady=8)
+        tk.Button(self.master, text="Exit", width=25, command=self.on_exit).pack(pady=20)
 
     def register_screen(self):
         self.clear_window()
-        tk.Label(self.master, text="Register New Customer", font=("Arial", 14)).pack(pady=10)
+        tk.Label(self.master, text="Register New Customer", font=("Segoe UI", 14, "bold")).pack(pady=10)
 
         self.name_entry = self.create_input("Full Name")
         self.email_entry = self.create_input("Email")
@@ -63,17 +66,16 @@ class CustomerGUI:
                     "password": password,
                     "balance": balance
                 })
-                messagebox.showinfo("Success", f"Registered! Your ID is {cid}")
-                self.show_main_menu()
+                self.status_label.config(text=f"✅ Registered! Your ID is {cid}", fg="green")
             except ValueError as e:
-                messagebox.showerror("Error", str(e))
+                self.status_label.config(text=f"❌ {str(e)}", fg="red")
 
         tk.Button(self.master, text="Submit", command=submit).pack(pady=10)
         tk.Button(self.master, text="Back", command=self.show_main_menu).pack()
 
     def login_screen(self):
         self.clear_window()
-        tk.Label(self.master, text="Customer Login", font=("Arial", 14)).pack(pady=10)
+        tk.Label(self.master, text="Customer Login", font=("Segoe UI", 14, "bold")).pack(pady=10)
 
         self.login_id_entry = self.create_input("Customer ID")
         self.login_pw_entry = self.create_input("Password", show="*")
@@ -86,26 +88,26 @@ class CustomerGUI:
                 self.current_customer = customer
                 self.dashboard()
             else:
-                messagebox.showerror("Error", "Invalid credentials.")
+                self.status_label.config(text="❌ Invalid credentials", fg="red")
 
         tk.Button(self.master, text="Login", command=login).pack(pady=10)
         tk.Button(self.master, text="Back", command=self.show_main_menu).pack()
 
     def dashboard(self):
         self.clear_window()
-        tk.Label(self.master, text=f"Welcome, {self.current_customer['name']}", font=("Arial", 14)).pack(pady=10)
+        tk.Label(self.master, text=f"Welcome, {self.current_customer['name']}", font=("Segoe UI", 14, "bold")).pack(pady=10)
 
-        tk.Button(self.master, text="View Balance", command=self.view_balance, width=30).pack(pady=5)
-        tk.Button(self.master, text="Deposit", command=lambda: self.transaction("Deposit"), width=30).pack(pady=5)
-        tk.Button(self.master, text="Withdraw", command=lambda: self.transaction("Withdraw"), width=30).pack(pady=5)
+        tk.Button(self.master, text="View Balance", command=self.view_balance, width=30).pack(pady=8)
+        tk.Button(self.master, text="Deposit", command=lambda: self.transaction("Deposit"), width=30).pack(pady=8)
+        tk.Button(self.master, text="Withdraw", command=lambda: self.transaction("Withdraw"), width=30).pack(pady=8)
         tk.Button(self.master, text="Logout", command=self.show_main_menu, width=30).pack(pady=20)
 
     def view_balance(self):
-        messagebox.showinfo("Balance", f"Your current balance is ${self.current_customer['balance']}")
+        self.status_label.config(text=f"💰 Your current balance is ${self.current_customer['balance']}", fg="blue")
 
     def transaction(self, txn_type):
         self.clear_window()
-        tk.Label(self.master, text=f"{txn_type} Amount", font=("Arial", 14)).pack(pady=10)
+        tk.Label(self.master, text=f"{txn_type} Amount", font=("Segoe UI", 14, "bold")).pack(pady=10)
 
         amount_entry = tk.Entry(self.master)
         amount_entry.pack(pady=5)
@@ -115,7 +117,7 @@ class CustomerGUI:
                 amt = float(amount_entry.get())
                 balance = float(self.current_customer['balance'])
                 if txn_type == "Withdraw" and amt > balance:
-                    messagebox.showerror("Error", "Insufficient funds.")
+                    self.status_label.config(text="❌ Insufficient funds.", fg="red")
                     return
                 new_balance = balance + amt if txn_type == "Deposit" else balance - amt
                 database.update_customer_balance(self.current_customer['customer_id'], new_balance)
@@ -127,10 +129,11 @@ class CustomerGUI:
                     new_balance
                 )
                 self.current_customer['balance'] = str(new_balance)
-                messagebox.showinfo("Success", f"{txn_type} complete. New balance: ${new_balance}")
+                self.status_label.config(
+                    text=f"✅ {txn_type} complete. New balance: ${new_balance}", fg="green")
                 self.dashboard()
             except:
-                messagebox.showerror("Error", "Invalid input.")
+                self.status_label.config(text="❌ Invalid input.", fg="red")
 
         tk.Button(self.master, text="Submit", command=process).pack(pady=5)
         tk.Button(self.master, text="Back", command=self.dashboard).pack()

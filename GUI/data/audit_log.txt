@@ -54,3 +54,13 @@
 [2025-04-30 19:59:58] VIEW_TRANSACTIONS - Viewed transaction log.
 [2025-05-08 00:49:57] LOGIN - Admin logged in.
 [2025-05-08 00:50:08] VIEW_LOGS - Viewed audit logs.
+[2025-05-11 17:49:51] LOGIN -  logged in as admin
+[2025-05-11 17:50:54] VIEW_ANALYTICS - Viewed analytics summary.
+[2025-05-11 17:51:00] VIEW_LOGS - Viewed audit logs.
+[2025-05-11 17:51:08] VIEW_CUSTOMERS - Viewed all customers.
+[2025-05-11 17:51:28] SEARCH_FAIL - Customer CUST2409 not found
+[2025-05-11 17:51:42] SEARCH_FAIL - Customer CUST2409 not found
+[2025-05-11 17:51:43] SEARCH_FAIL - Customer CUST2409 not found
+[2025-05-11 17:51:44] SEARCH_FAIL - Customer CUST2409 not found
+[2025-05-11 17:51:50] SEARCH_FAIL - Customer CUST2409 not found
+[2025-05-11 17:52:04] SEARCH - Searched customer CUST6396
