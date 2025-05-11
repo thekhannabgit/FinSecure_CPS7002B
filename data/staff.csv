@@ -1,2 +1,4 @@
 username,password,role
 ,,admin
+Admin,newadmin@testmail.com,admin,2416877,admin
+non admin,nonadmin@test.com,nonadmin,2416877,non-admin

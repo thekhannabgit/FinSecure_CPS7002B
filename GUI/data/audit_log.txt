@@ -64,3 +64,8 @@
 [2025-05-11 17:51:44] SEARCH_FAIL - Customer CUST2409 not found
 [2025-05-11 17:51:50] SEARCH_FAIL - Customer CUST2409 not found
 [2025-05-11 17:52:04] SEARCH - Searched customer CUST6396
+[2025-05-11 18:23:13] FAILED_LOGIN - Failed login for admin
+[2025-05-11 18:24:42] FAILED_LOGIN - Failed login for admin
+[2025-05-11 18:25:02] FAILED_LOGIN - Failed login for admin
+[2025-05-11 18:27:21] FAILED_LOGIN - Failed login for admin
+[2025-05-11 18:28:08] FAILED_LOGIN - Failed login for nonadmin
