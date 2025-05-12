@@ -49,6 +49,7 @@ pip install matplotlib
 2. **Run the main launcher GUI**:
 3. Please maximise the window to use back button for navigation
 
+
 ```bash
 python LauncherMain.py
 ```
@@ -88,7 +89,7 @@ python LauncherMain.py
 
 ## 📊 Sample Charts
 
-- **Pie Chart**: Breakdown of Deposits vs Withdrawals
+- **Pie Chart**: Breakdown of Deposits vs Withdrawals  
 - **Bar Chart**: Customers vs Total Transaction Amounts
 
 Charts are generated using `matplotlib` and display in popup windows on admin access.
@@ -111,8 +112,8 @@ You can register your own users via the GUI. But here’s a quick reference if n
 - **Staff (Admin)**:
   - Register with desired username/password.
   - Choose **admin** role during registration.
-
-  - **Customer Test User**:
+  - 
+- **Customer Test User**:
   - Username: CUST4103
   - password: 2416877
 - **Staff Test user (Admin)**:

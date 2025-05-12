@@ -31,3 +31,4 @@ transaction_id,customer_id,name,type,amount,balance,timestamp,status
 30,CUST9864,Nabeel Khan,Withdraw,158001.0,110000.0,12-05-2025 08:01,Flagged for Review
 31,CUST4103,Stephen,Deposit,2356.0,11912.0,12-05-2025 08:51,Approved
 32,CUST4103,Stephen,Withdraw,657.0,11255.0,12-05-2025 08:51,Approved
+33,CUST4103,Stephen,Deposit,12.0,11267.0,12-05-2025 19:16,Approved
