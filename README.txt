@@ -41,7 +41,7 @@ Make sure you have Python 3.10+ and the required dependencies installed.
 pip install matplotlib
 ```
 
----
+----
 
 ## 🚀 How to Run
 
