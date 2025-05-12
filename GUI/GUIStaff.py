@@ -2,7 +2,6 @@ import csv
 import tkinter as tk
 import os
 from tkinter import messagebox
-#from utils import compliance, database, analytics, charting
 from utils import compliance, database, analytics, charting
 from utils.database import TRANSACTIONS_FILE
 
