@@ -1,5 +1,4 @@
 import tkinter as tk
-from tkinter import messagebox
 import random
 from utils import database
 
@@ -10,11 +9,7 @@ class ScrollableFrame(tk.Frame):
         scrollbar = tk.Scrollbar(self, orient="vertical", command=canvas.yview)
         self.scrollable_frame = tk.Frame(canvas)
 
-        self.scrollable_frame.bind(
-            "<Configure>",
-            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
-        )
-
+        self.scrollable_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
         canvas.create_window((0, 0), window=self.scrollable_frame, anchor="nw")
         canvas.configure(yscrollcommand=scrollbar.set)
 
@@ -27,9 +22,9 @@ class CustomerGUI:
         self.master.geometry("600x500")
         self.master.title("FinSecure - Customer Dashboard")
         self.current_customer = None
+        self.back_to_main = back_to_main
         self.status_label = tk.Label(self.master, text="", fg="green", font=("Segoe UI", 10))
         self.status_label.pack(pady=5)
-        self.back_to_main = back_to_main
         self.show_main_menu()
         self.master.protocol("WM_DELETE_WINDOW", self.on_exit)
 
@@ -125,9 +120,11 @@ class CustomerGUI:
             try:
                 amt = float(amount_entry.get())
                 balance = float(self.current_customer['balance'])
+
                 if txn_type == "Withdraw" and amt > balance:
                     self.status_label.config(text="❌ Insufficient funds.", fg="red")
                     return
+
                 new_balance = balance + amt if txn_type == "Deposit" else balance - amt
                 database.update_customer_balance(self.current_customer['customer_id'], new_balance)
                 database.log_transaction(
@@ -138,7 +135,9 @@ class CustomerGUI:
                     new_balance
                 )
                 self.current_customer['balance'] = str(new_balance)
-                self.status_label.config(text=f"✅ {txn_type} of ${amt:.2f} successful. New balance: ${new_balance:.2f}", fg="green")
+                self.status_label.config(
+                    text=f"✅ {txn_type} of ${amt:.2f} successful. New balance: ${new_balance:.2f}", fg="green"
+                )
                 self.dashboard()
             except:
                 self.status_label.config(text="❌ Invalid input.", fg="red")

@@ -69,3 +69,44 @@
 [2025-05-11 18:25:02] FAILED_LOGIN - Failed login for admin
 [2025-05-11 18:27:21] FAILED_LOGIN - Failed login for admin
 [2025-05-11 18:28:08] FAILED_LOGIN - Failed login for nonadmin
+[2025-05-11 19:54:25] FAILED_LOGIN - Failed login for admin
+[2025-05-11 19:54:42] FAILED_LOGIN - Failed login for admin
+[2025-05-11 19:56:04] FAILED_LOGIN - Failed login for nabeel
+[2025-05-11 19:57:54] FAILED_LOGIN - Failed login for admin
+[2025-05-11 20:10:20] FAILED_LOGIN - Failed login for admin
+[2025-05-11 20:10:35] FAILED_LOGIN - Failed login for nabeel
+[2025-05-11 20:10:39] FAILED_LOGIN - Failed login for Nabeel
+[2025-05-11 20:11:32] FAILED_LOGIN - Failed login for nabeel
+[2025-05-11 20:12:42] FAILED_LOGIN - Failed login for nabeel
+[2025-05-11 20:14:55] FAILED_LOGIN - Failed login for Nabtest
+[2025-05-11 20:18:17] FAILED_LOGIN - Failed login for debug
+[2025-05-11 20:18:46] FAILED_LOGIN - Failed login for debuguser
+[2025-05-11 20:19:20] FAILED_LOGIN - Failed login for debuguser
+[2025-05-11 20:31:16] LOGIN - nabeel logged in as admin
+[2025-05-11 20:31:26] VIEW_CUSTOMERS - Viewed all customers.
+[2025-05-11 20:31:37] VIEW_CUSTOMERS - Viewed all customers.
+[2025-05-11 20:31:54] SEARCH - Searched customer CUST4103
+[2025-05-11 20:31:58] VIEW_LOGS - Viewed audit logs.
+[2025-05-12 02:13:44] LOGIN - nabeel logged in as admin
+[2025-05-12 02:15:13] SEARCH - Searched customer CUST4103
+[2025-05-12 02:20:49] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 02:21:10] VIEW_LOGS - Viewed audit logs.
+[2025-05-12 02:22:09] VIEW_CUSTOMERS - Viewed all customers.
+[2025-05-12 02:22:13] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 07:30:22] LOGIN - Nabeel logged in as admin
+[2025-05-12 07:30:26] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 07:56:37] FAILED_LOGIN - Failed login for Nabeel
+[2025-05-12 07:56:42] FAILED_LOGIN - Failed login for Nabeel
+[2025-05-12 07:57:50] LOGIN - admin logged in as admin
+[2025-05-12 07:57:56] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 07:58:15] SEARCH - Searched customer CUST4103
+[2025-05-12 08:02:01] LOGIN - admin logged in as admin
+[2025-05-12 08:02:04] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 08:23:28] LOGIN - admin logged in as admin
+[2025-05-12 08:23:31] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 08:46:11] LOGIN - admin logged in as admin
+[2025-05-12 08:46:22] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 08:52:04] LOGIN - admin logged in as admin
+[2025-05-12 08:52:08] VIEW_TRANSACTIONS - Viewed transaction log.
+[2025-05-12 09:00:23] LOGIN - admin logged in as admin
+[2025-05-12 09:00:26] VIEW_TRANSACTIONS - Viewed transaction log.

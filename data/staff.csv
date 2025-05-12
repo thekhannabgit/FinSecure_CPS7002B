@@ -1,4 +1,3 @@
-username,password,role
-,,admin
-Admin,newadmin@testmail.com,admin,2416877,admin
-non admin,nonadmin@test.com,nonadmin,2416877,non-admin
+name,email,username,password,role
+Nabeel Khan,Nab@testmail.com,nabeel,2416877,admin
+adminuser,admin@mail.com,admin,2416877,admin

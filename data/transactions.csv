@@ -12,18 +12,22 @@ transaction_id,customer_id,name,type,amount,balance,timestamp,status
 11,CUST9919,Mohd Nabeel,Withdraw,23,264192,24-04-2025 03:33,Approved
 12,CUST9919,Mohd Nabeel,Withdraw,345,263847,24-04-2025 03:33,Approved
 13,CUST9919,Mohd Nabeel,Withdraw,900,262947,24-04-2025 03:33,Approved
-14,CUST9919,Mohd Nabeel,Deposit,12.0,262959.0,29-04-2025 01:33,Approved
-15,CUST9919,Mohd Nabeel,Withdraw,4000.0,258959.0,29-04-2025 01:33,Approved
-16,CUST7274,test123,Deposit,500.0,500.0,29-04-2025 01:34,Approved
-17,CUST7274,test123,Withdraw,2.0,498.0,29-04-2025 01:34,Approved
-18,CUST7247,NabeelTest1,Deposit,1000.0,1000.0,30-04-2025 19:45,Approved
-19,CUST7247,NabeelTest1,Withdraw,200.0,800.0,30-04-2025 19:45,Approved
-20,CUST7247,NabeelTest1,Deposit,10000.0,10800.0,30-04-2025 19:45,Approved
-21,CUST6396,Ryan Jackson,Deposit,1000.0,1000.0,11-05-2025 17:29,Approved
-22,CUST6396,Ryan Jackson,Withdraw,10.0,990.0,11-05-2025 17:29,Approved
-CUST7689,Neha,Deposit,100.0,100.0
-CUST7689,Neha,Withdraw,10.0,90.0
-CUST4103,Stephen,Deposit,900.0,900.0
-CUST4103,Stephen,Withdraw,123.0,777.0
-CUST4103,Stephen,Deposit,100.0,877.0
-CUST4103,Stephen,Withdraw,10.0,867.0
+14,CUST9919,Mohd Nabeel,Deposit,12,262959,29-04-2025 01:33,Approved
+15,CUST9919,Mohd Nabeel,Withdraw,4000,258959,29-04-2025 01:33,Approved
+16,CUST7274,test123,Deposit,500,500,29-04-2025 01:34,Approved
+17,CUST7274,test123,Withdraw,2,498,29-04-2025 01:34,Approved
+18,CUST7247,NabeelTest1,Deposit,1000,1000,30-04-2025 19:45,Approved
+19,CUST7247,NabeelTest1,Withdraw,200,800,30-04-2025 19:45,Approved
+20,CUST7247,NabeelTest1,Deposit,10000,10800,30-04-2025 19:45,Approved
+21,CUST6396,Ryan Jackson,Deposit,1000,1000,11-05-2025 17:29,Approved
+22,CUST6396,Ryan Jackson,Withdraw,10,990,11-05-2025 17:29,Approved
+23,CUST4103,Stephen,Deposit,2134.0,7213.0,12-05-2025 07:58,Approved
+24,CUST4103,Stephen,Withdraw,13.0,7200.0,12-05-2025 07:59,Approved
+25,CUST9864,Nabeel Khan,Deposit,244556.0,244556.0,12-05-2025 08:00,Flagged for Review
+26,CUST9864,Nabeel Khan,Withdraw,12.0,244544.0,12-05-2025 08:00,Approved
+27,CUST9864,Nabeel Khan,Deposit,999999.0,1244543.0,12-05-2025 08:00,Flagged for Review
+28,CUST9864,Nabeel Khan,Withdraw,999998.0,244545.0,12-05-2025 08:01,Flagged for Review
+29,CUST9864,Nabeel Khan,Deposit,23456.0,268001.0,12-05-2025 08:01,Flagged for Review
+30,CUST9864,Nabeel Khan,Withdraw,158001.0,110000.0,12-05-2025 08:01,Flagged for Review
+31,CUST4103,Stephen,Deposit,2356.0,11912.0,12-05-2025 08:51,Approved
+32,CUST4103,Stephen,Withdraw,657.0,11255.0,12-05-2025 08:51,Approved

@@ -2,20 +2,24 @@ import csv
 import tkinter as tk
 import os
 from tkinter import messagebox
+#from utils import compliance, database, analytics, charting
 from utils import compliance, database, analytics, charting
+from utils.database import TRANSACTIONS_FILE
+
 
 class StaffGUI:
     def __init__(self, master, back_to_main=None):
         self.master = master
         self.master.geometry("700x550")
-        self.back_to_main = back_to_main
         self.master.title("FinSecure - Staff Dashboard")
+        self.back_to_main = back_to_main
         self.logger = compliance.Compliance()
         self.status_label = tk.Label(self.master, text="", fg="green", font=("Segoe UI", 10))
         self.status_label.pack(pady=5)
         self.staff_username = None
         self.staff_role = None
         self.show_main_menu()
+        self.master.protocol("WM_DELETE_WINDOW", self.on_exit)
 
     def clear_window(self):
         for widget in self.master.winfo_children():
@@ -29,8 +33,10 @@ class StaffGUI:
 
         tk.Button(self.master, text="Login", width=25, bg="#4caf50", fg="white", command=self.show_login).pack(pady=10)
         tk.Button(self.master, text="Register New Staff", width=25, bg="#007acc", fg="white", command=self.show_register).pack(pady=10)
+
         if self.back_to_main:
             tk.Button(self.master, text="⬅ Back to Main", width=25, bg="gray", fg="white", command=self.back_to_main).pack(pady=10)
+
         tk.Button(self.master, text="Exit", width=25, command=self.master.quit).pack(pady=30)
 
     def show_register(self):
@@ -41,21 +47,24 @@ class StaffGUI:
         self.email_entry = self.create_input("Email")
         self.username_entry = self.create_input("Username")
         self.password_entry = self.create_input("Password", show="*")
-        self.role_entry = self.create_input("Role (admin or non-admin)")
+
+        self.role_var = tk.StringVar(value="admin")
+        tk.Label(self.master, text="Select Role:", font=("Segoe UI", 10)).pack()
+        tk.Radiobutton(self.master, text="Admin", variable=self.role_var, value="admin").pack()
+        tk.Radiobutton(self.master, text="Non-Admin", variable=self.role_var, value="non-admin").pack()
 
         def submit_registration():
-            name = self.fullname_entry.get()
-            email = self.email_entry.get()
-            username = self.username_entry.get()
-            password = self.password_entry.get()
-            role = self.role_entry.get().lower()
+            name = self.fullname_entry.get().strip()
+            email = self.email_entry.get().strip()
+            username = self.username_entry.get().strip()
+            password = self.password_entry.get().strip()
 
-            if not name or not email or not username or not password or not role:
+            role = self.role_var.get()
+
+            if not name or not email or not username or not password:
                 self.status_label.config(text="❌ All fields are required.", fg="red")
                 return
-            if role not in ["admin", "non-admin"]:
-                self.status_label.config(text="❌ Role must be 'admin' or 'non-admin'", fg="red")
-                return
+
             try:
                 database.save_staff({
                     "name": name,
@@ -79,8 +88,8 @@ class StaffGUI:
         self.pass_entry = self.create_input("Password", show="*")
 
         def attempt_login():
-            username = self.user_entry.get()
-            password = self.pass_entry.get()
+            username = self.user_entry.get().strip()
+            password = self.pass_entry.get().strip()
             role = database.validate_staff_login(username, password)
 
             if role:
@@ -146,7 +155,8 @@ class StaffGUI:
         tk.Label(self.master, text="Transactions Log", font=("Segoe UI", 14, "bold")).pack(pady=10)
         frame = self.create_scrollable_frame()
 
-        transactions_file = os.path.join("data", "transactions.csv")
+        #transactions_file = os.path.join("data", "transactions.csv")
+        transactions_file = TRANSACTIONS_FILE
         if os.path.exists(transactions_file):
             with open(transactions_file, "r") as file:
                 lines = file.readlines()
@@ -218,6 +228,10 @@ class StaffGUI:
         entry = tk.Entry(self.master, show=show)
         entry.pack()
         return entry
+
+    def on_exit(self):
+        self.master.quit()
+        self.master.destroy()
 
 if __name__ == "__main__":
     root = tk.Tk()
