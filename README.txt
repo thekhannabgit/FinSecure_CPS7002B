@@ -47,7 +47,7 @@ pip install matplotlib
 
 1. **Clone or download the project** into a folder:
 2. **Run the main launcher GUI**:
-3. Please maximise the window to use back button for navigation
+3. **Please maximise the window to use back button for navigation
 
 ```bash
 python LauncherMain.py
